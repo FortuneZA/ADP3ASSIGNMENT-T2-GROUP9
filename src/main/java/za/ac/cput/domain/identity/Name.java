@@ -1,8 +1,10 @@
 package za.ac.cput.domain.identity;
 
-import javafx.util.Builder;
 
-import javax.persistence.Entity;
+
+
+import javax.persistence.Embeddable;
+
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -13,7 +15,7 @@ Entity class for Name
 Author: Mathew Fortuin (219069514)
 Date: 10 June 2022
 */
-@Entity
+@Embeddable
 public class Name implements Serializable {
 
    @Id
@@ -30,6 +32,16 @@ public class Name implements Serializable {
         this.lastName = builder.lastName;
     }
 
+    //Getters
+    public String getFirstName(){return firstName;}
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
 
 
     public static class Builder{
@@ -37,16 +49,6 @@ public class Name implements Serializable {
         private String middleName;
         private String lastName;
 
-        //Getters
-        public String getFirstName(){return firstName;}
-
-        public String getMiddleName() {
-            return middleName;
-        }
-
-        public String getLastName() {
-            return lastName;
-        }
 
 
         //Setters
