@@ -3,10 +3,12 @@ package za.ac.cput.domain.identity;
 
 
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Embeddable;
 
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 
@@ -19,7 +21,8 @@ Date: 10 June 2022
 public class Name implements Serializable {
 
    @Id
-   @NotNull private String firstName;
+   @NotNull
+   private String firstName;
     private String middleName;
     @NotNull private String lastName;;
 
