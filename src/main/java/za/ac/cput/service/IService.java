@@ -4,15 +4,15 @@ package za.ac.cput.service;
 //Mathew Fortuin (219069514)
 
 
+import java.util.List;
 import java.util.Optional;
 
 public interface IService <T,ID> {
 
-    T create(T t);
+    T save(T t);
 
-    T read(ID id);
-
-    T update(T t);
+    List<T> readOne(ID id);
+    List<T> readAll(ID id);
 
     void delete(ID id);
 }
