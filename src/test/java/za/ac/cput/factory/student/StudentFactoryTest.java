@@ -33,7 +33,7 @@ class StudentFactoryTest {
         Exception exception=assertThrows(IllegalArgumentException.class,
                 ()->student=StudentFactory.newStudent("","jhd@gmail.com", name)); // missing name
         System.out.println(exception.getMessage());
-        assertTrue(exception.getMessage().contains("studentId"));
+        assertTrue(exception.getMessage().contains("StudentId"));
     }
 
     @Order(3)
