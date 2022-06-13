@@ -3,26 +3,30 @@ package za.ac.cput.domain.identity;
 
 
 
-import javax.persistence.Embeddable;
+import com.sun.beans.decoder.ValueObject;
 
-import javax.persistence.Id;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
+import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 
 /* Name.java
-Entity class for Name
+Value Object class for Name
 Author: Mathew Fortuin (219069514)
 Date: 10 June 2022
 */
 @Embeddable
+@Access(AccessType.FIELD)
 public class Name implements Serializable {
 
-   @Id
+
    @NotNull private String firstName;
-    private String middleName;
+            private String middleName;
     @NotNull private String lastName;;
 
+    @SuppressWarnings("unused")
     //Parameterless constructor
     protected Name(){}
 
@@ -80,6 +84,7 @@ public class Name implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 '}';
     }
+
     //Object validation
 
     public boolean verify(Object n)
