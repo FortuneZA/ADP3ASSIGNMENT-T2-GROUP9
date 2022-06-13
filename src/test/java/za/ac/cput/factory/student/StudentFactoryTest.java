@@ -1,5 +1,11 @@
 package za.ac.cput.factory.student;
 
+/* StudentFactoryTest.java
+Factory test class for Student
+Author: Cameron Henry Noemdo (219115443)
+Date: 10 June 2022
+*/
+
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -31,9 +37,9 @@ class StudentFactoryTest {
     @Test
     void failCreateStudent() {
         Exception exception=assertThrows(IllegalArgumentException.class,
-                ()->student=StudentFactory.newStudent("","jhd@gmail.com", name)); // missing name
+                ()->student=StudentFactory.newStudent("","jhd@gmail.com", name)); // missing studentid
         System.out.println(exception.getMessage());
-        assertTrue(exception.getMessage().contains("studentId"));
+        assertTrue(exception.getMessage().contains("StudentId"));
     }
 
     @Order(3)
