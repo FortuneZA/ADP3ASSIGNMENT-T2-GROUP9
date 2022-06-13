@@ -36,9 +36,9 @@ void createNameSuccessfully()
  void createNameFailure()
  {
      Exception exception = assertThrows(IllegalArgumentException.class,
-             ()->name=NameFactory.buildName("","Cole","Fortune"));
+             ()->name=NameFactory.buildName(null,null,"Fortune"));
      System.out.println(exception.getMessage());
-     assertTrue(exception.getMessage().contains("firstName"));
+     assertFalse(exception.getMessage().contains("firstName"));
 
 
 }
@@ -48,7 +48,7 @@ void createNameSuccessfully()
 void testNoFirstName()
 {
     Exception exception = assertThrows(IllegalArgumentException.class,
-            ()->name=NameFactory.buildName("","Cole","Fortune")); //Missing First Name
+            ()->name=NameFactory.buildName(null,"Cole","Fortune")); //Missing First Name
     System.out.println(exception.getMessage());
     assertTrue(exception.getMessage().contains("First Name is not provided!"));
 }
@@ -59,7 +59,7 @@ void testNoFirstName()
     void testNoLastName()
     {
         Exception exception = assertThrows(IllegalArgumentException.class,
-                ()->name=NameFactory.buildName("Matt","Cole","")); //Missing Last Name
+                ()->name=NameFactory.buildName("Matt","Cole",null)); //Missing Last Name
         System.out.println(exception.getMessage());
         assertTrue(exception.getMessage().contains("Last Name is not provided!"));
     }
