@@ -1,5 +1,11 @@
 package za.ac.cput.service.student;
 
+/* StudentService.java
+Service implementation for Student
+Author: Cameron Henry Noemdo (219115443)
+Date: 13 June 2022
+*/
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.student.Student;
