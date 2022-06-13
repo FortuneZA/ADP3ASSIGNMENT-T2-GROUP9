@@ -3,23 +3,24 @@ package za.ac.cput.domain.identity;
 
 
 
-import com.sun.beans.decoder.ValueObject;
 
+import com.sun.beans.decoder.ValueObject;
+import java.io.Serializable;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-
 
 /* Name.java
 Value Object class for Name
 Author: Mathew Fortuin (219069514)
 Date: 10 June 2022
 */
+
 @Embeddable
 @Access(AccessType.FIELD)
 public class Name implements Serializable {
+
 
 
    @NotNull private String firstName;
