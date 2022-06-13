@@ -17,36 +17,40 @@ import za.ac.cput.service.IService;
 import java.util.List;
 import java.util.Optional;
 
-/*@Service
+@Service
 public class NameService implements INameService {
 
-    private final INameRepository repository;
+ private final INameRepository repository;
 
-    @Autowired
-    public NameService(INameRepository repository) {
-        this.repository = repository;
-    }
+ @Autowired private NameService(INameRepository repository)
+ {
+     this.repository=repository;
+ }
 
-    @Override
-    public Name save(Name name) {
-        return this.repository.save(name);
-    }
+ @Override
+    public Name save(Name name)
+ {
+     return this.repository.save(name);
+ }
 
-    @Override
-    public List<Name> read(Name name) {
-        return this.repository.getAll();
-    }
+ @Override
+    public Optional<Name> read(String lastName)
+ {
+     return this.repository.findById(lastName);
+ }
 
-    @Override
-    public void delete(Name name) {
-        this.repository.delete(name);
-    }
+ @Override
+    public void delete(Name name)
+ {
+     this.repository.delete(name);
+ }
+ @Override
+ public List<Name> findAll()
+ {
+     return this.repository.findAll();
+ }
 
-    @Override
-    public List<Name> findbyLastName(String lastName) {
-        return this.repository.findbyLastName(lastName);
-    }
 
-}*/
+}
 
 

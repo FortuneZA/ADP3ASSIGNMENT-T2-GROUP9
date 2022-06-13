@@ -11,14 +11,14 @@ Date: 11 June 2022
 import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.domain.identity.Name;
 
-import javax.validation.constraints.Null;
+
 import java.util.List;
 
-public interface INameRepository extends JpaRepository<Name, Null> {
+public interface INameRepository extends JpaRepository<Name,String> {
 
     //SELECT * FROM NAME WHERE lastName = ''
 
-   List<Name> findbyLastName (String lastName);
+   //List<Name> findbyLastName (String lastName);
 
    List<Name> findAll();
 }
