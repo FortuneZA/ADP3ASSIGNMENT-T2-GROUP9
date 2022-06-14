@@ -1,5 +1,6 @@
 package za.ac.cput.factory.employee;
 
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.employee.Employee;
 import za.ac.cput.domain.identity.Name;
@@ -12,6 +13,7 @@ class  EmployeeFactoryTest {
     private Employee employee;
     private final Name name = NameFactory.buildName("Lefu", "Aubrey", "Kumeke");
 
+    @Order(1)
     @Test
     public void createEmployeeWithSuccess(){ // Creating employee successfully
 
@@ -22,6 +24,17 @@ class  EmployeeFactoryTest {
                 ()-> assertEquals("lefukumeke@gmail.com",employee.getEmail()));
     }
 
+    @Order(2)
+    @Test
+    void testNoStaffId() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+                EmployeeFactory.createEmployee("", "lefukumeke@gmail.com", name));
+        String exceptionMessage =  exception.getMessage();
+        System.out.println(exceptionMessage);
+        assertSame( "Staff ID is Required", exceptionMessage);
+    }
+
+    @Order(3)
     @Test
     public void createWithError (){ //Creating employee with an error, name is null
 
@@ -32,6 +45,7 @@ class  EmployeeFactoryTest {
         assertSame( "Name is Required", exceptionMessage);
 
     }
+    @Order(4)
     @Test
     public void employeeWithInvalidEmail (){ // invalid email due to misspelling
         Exception exception=assertThrows(IllegalArgumentException.class, ()->
@@ -40,5 +54,7 @@ class  EmployeeFactoryTest {
         assertTrue(exception.getMessage().contains("Invalid email"));
 
     }
+
+
 
 }
