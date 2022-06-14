@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.employee.Employee;
 import za.ac.cput.domain.identity.Name;
 import za.ac.cput.factory.identity.NameFactory;
-import za.ac.cput.factory.student.StudentFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
