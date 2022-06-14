@@ -8,9 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.location.Address;
-import za.ac.cput.domain.region.City;
 
- import java.time.Duration;
+import java.time.Duration;
 class AddressFactoryTest
 {
     private String address1;
