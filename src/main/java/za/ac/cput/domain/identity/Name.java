@@ -4,12 +4,13 @@ package za.ac.cput.domain.identity;
 
 
 
-import com.sun.beans.decoder.ValueObject;
+
+import com.sun.istack.NotNull;
 import java.io.Serializable;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Embeddable;
-import javax.validation.constraints.NotNull;
+
 
 /* Name.java
 Value Object class for Name
@@ -23,7 +24,8 @@ public class Name implements Serializable {
 
 
 
-   @NotNull private String firstName;
+   @NotNull
+   private String firstName;
             private String middleName;
     @NotNull private String lastName;;
 
