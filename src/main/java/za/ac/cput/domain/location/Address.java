@@ -23,24 +23,27 @@ public class Address {
         return unitNumber;
     }
 
-    public void setUnitNumber(String unitNumber) {
+    public String setUnitNumber(String unitNumber) {
         this.unitNumber = unitNumber;
+        return unitNumber;
     }
 
     public String getComplexName() {
         return complexName;
     }
 
-    public void setComplexName(String complexName) {
+    public String setComplexName(String complexName) {
         this.complexName = complexName;
+        return complexName;
     }
 
     public String getStreetNumber() {
         return streetNumber;
     }
 
-    public void setStreetNumber(String streetNumber) {
+    public String setStreetNumber(String streetNumber) {
         this.streetNumber = streetNumber;
+        return streetNumber;
     }
 
     public String getStreetName() {
@@ -48,24 +51,27 @@ public class Address {
     }
 
     //Setter
-    public void setStreetName(String streetName) {
+    public String setStreetName(String streetName) {
         this.streetName = streetName;
+        return streetName;
     }
 
     public int getPostalCode() {
         return postalCode;
     }
 
-    public void setPostalCode(int postalCode) {
+    public int setPostalCode(int postalCode) {
         this.postalCode = postalCode;
+        return postalCode;
     }
 
     public String getCity() {
         return City;
     }
 
-    public void setCity(String city) {
+    public String setCity(String city) {
         City = city;
+        return city;
     }
 
     @Override

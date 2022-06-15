@@ -1,20 +1,28 @@
 package za.ac.cput.repository.location;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.location.Address;
 import za.ac.cput.factory.location.AddressFactory;
-
+import org.junit.jupiter.api.TestMethodOrder;
 import static org.junit.jupiter.api.Assertions.*;
 
-
+@TestMethodOrder(MethodOrderer.MethodName.class)
 class AddressRepositoryTest
 {
     private static AddressRepository addressRepository = AddressRepository.getRepository();
-    private static Address address = AddressFactory.createAddress("17", "Miller", "244", "VoorTrekker Street",7405,"CapeTown");
+    private static Address address = AddressFactory.createAddress("122", "Miller", "12", "River Street",7405,"CapeTown");
+
+
     @Test
     void a_create() {
         Address created = addressRepository.create(address);
         assertEquals(created.getUnitNumber(), address.getUnitNumber());
-        System.out.println("Created ID: " + created.getUnitNumber() + "\nUnit Number: " + address.getUnitNumber() + "\n");
+        System.out.println("Created Address: " + created.getUnitNumber() + "\nUnit Number: " + address.getUnitNumber() + "\n"
+                + created.getComplexName() + "\nComplex Name: " + address.getComplexName() + "\n"
+                + created.getStreetNumber() + "\nStreet Number: " + address.getStreetNumber() + "\n"
+                + created.getStreetName() + "\nStreet Name: " + address.getStreetName() + "\n"
+                + created.getPostalCode() + "\nPostalCode: " + address.getPostalCode() + "\n"
+                + created.getCity() + "\nCity: " + address.getCity() + "\n");
     }
 
     @Test
@@ -29,16 +37,16 @@ class AddressRepositoryTest
     void c_update() {
         Address updated = new Address.Builder().copy(address).setUnitNumber("17").build();
         //    assertNotNull(studentRepository.update(updated));
-        System.out.println("Updated (" + updated.getStudentId() + "): " + updated.getFirstName() + " " + updated.getLastName()
-                + updated.getStudentEmail() + " "+ updated.getFirstName() + updated.getCourseID()
-                + " " + " = Student: (" + student.getStudentId() + "): " + student.getFirstName() + " " + student.getLastName()
-                + student.getStudentEmail() + " "  + student.getCourseID());
+        System.out.println("Updated Address:(" + updated.setUnitNumber("17")+ "): " + updated.setComplexName("Elmar Court") + " " + updated.setStreetNumber("405")
+                + updated.setStreetName("Pravin Street") + " "+ updated.setPostalCode(4001) + updated.setCity("Durban"));
+                //+ " " + " = Student: (" + address.getUnitNumber() + "): " + address.getComplexName() + " " + address.getStreetNumber()
+                //+ address.getStreetName() + " "  + address.getPostalCode() + " " + address.getCity());
     }
 
     @Test
     void e_delete() {
 
-        boolean deleted = studentRepository.delete(student.getStudentId());
+        boolean deleted = addressRepository.delete(address.getUnitNumber());
         assertTrue(deleted);
         System.out.println("Deleted: " + deleted);
         d_getAll();
@@ -47,6 +55,8 @@ class AddressRepositoryTest
 
     @Test
     void d_getAll(){
-        System.out.println(studentRepository. getAll() + "\n");
+        System.out.println(addressRepository. getAll() + "\n");
     }
+
+
 }
