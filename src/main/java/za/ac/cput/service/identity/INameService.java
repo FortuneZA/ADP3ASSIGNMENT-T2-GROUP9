@@ -1,4 +1,9 @@
 package za.ac.cput.service.identity;
+/*
+INameService.java
+Domain specific interface for Name
+Mathew Fortuin(219069514)
+ */
 
 import za.ac.cput.domain.identity.Name;
 import za.ac.cput.service.IService;
