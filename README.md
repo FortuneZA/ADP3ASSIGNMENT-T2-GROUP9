@@ -17,7 +17,7 @@ Cameron Noemdo-219115443
 
 **Question 10:**
 
-After reviewing the school management system in its entirety,it was mentioned that
+
 
 ![image](https://user-images.githubusercontent.com/61013523/172817275-ff191665-ca8c-4c3f-90c2-12afba057fdc.png)
 
