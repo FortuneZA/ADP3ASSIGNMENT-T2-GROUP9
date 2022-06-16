@@ -32,11 +32,5 @@ public class EmployeeService implements IEmployeeService {
 
 
 
-    @Override
-    public void deleteByIs(String id) {
-        Optional<Employee> employee = read(id);
-        //if(employee.isPresent()) delete(employee.get());
-
-    }
 
 }
