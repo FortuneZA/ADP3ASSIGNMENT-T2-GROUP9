@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface IEmployeeService extends IService<Employee, String> {
     List<Employee> findAll();
-    void deleteByIs(String id);
 }
