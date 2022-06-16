@@ -1,8 +1,11 @@
 package za.ac.cput.repository.location;
 import za.ac.cput.domain.location.Address;
+
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.HashSet;
-public class AddressRepository implements IAddressRepository
+public  class AddressRepository implements IAddressRepository
 {
     private static AddressRepository repository = null;
     private Set<Address> addressDB= null;
@@ -18,12 +21,12 @@ public class AddressRepository implements IAddressRepository
     }
 
     @Override
-    public Address create(Address student) {
-        boolean success = this.addressDB.add(student);
+    public Address create(Address address) {
+        boolean success = this.addressDB.add(address);
         if(!success)
             return null;
 
-        return student;
+        return address;
     }
 
     @Override
@@ -66,4 +69,21 @@ public class AddressRepository implements IAddressRepository
     public Set<Address> getAll() {
         return addressDB;
     }
+
+    @Override
+    public List<Address> findAll() {
+        return null;
+    }
+
+    @Override
+    public Address save(Address address) {
+        return null;
+    }
+
+    @Override
+    public Optional<Address> findById(String unitNumber) {
+        return Optional.empty();
+    }
+
+
 }

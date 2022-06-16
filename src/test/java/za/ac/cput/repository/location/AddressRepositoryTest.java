@@ -17,12 +17,7 @@ class AddressRepositoryTest
     void a_create() {
         Address created = addressRepository.create(address);
         assertEquals(created.getUnitNumber(), address.getUnitNumber());
-        System.out.println("Created Address: " + created.getUnitNumber() + "\nUnit Number: " + address.getUnitNumber() + "\n"
-                + created.getComplexName() + "\nComplex Name: " + address.getComplexName() + "\n"
-                + created.getStreetNumber() + "\nStreet Number: " + address.getStreetNumber() + "\n"
-                + created.getStreetName() + "\nStreet Name: " + address.getStreetName() + "\n"
-                + created.getPostalCode() + "\nPostalCode: " + address.getPostalCode() + "\n"
-                + created.getCity() + "\nCity: " + address.getCity() + "\n");
+        System.out.println("Created Address: " +"\nUnit Number: " + created.getUnitNumber() + "Complex Name: " + created.getComplexName()   + "Street Number: " + created.getStreetNumber()   + "Street Name: "  + created.getStreetName()   + "PostalCode: "+ created.getPostalCode() + "City: "+ created.getCity()  + "\n");
     }
 
     @Test
@@ -35,10 +30,19 @@ class AddressRepositoryTest
 
     @Test
     void c_update() {
-        Address updated = new Address.Builder().copy(address).setUnitNumber("17").build();
+        Address updated = new Address.Builder().setUnitNumber("15")
+                .setComplexName("Elmar Court")
+                .setStreetNumber("405")
+                .setStreetName("Pravin Street")
+                .setPostalCode(4001)
+                .setCity("Durban")
+                .build();
+        assertNotNull(addressRepository.update(updated));
+        System.out.println("updated" + updated);
+                //(address).setUnitNumber("17").build();
         //    assertNotNull(studentRepository.update(updated));
-        System.out.println("Updated Address:(" + updated.setUnitNumber("17")+ "): " + updated.setComplexName("Elmar Court") + " " + updated.setStreetNumber("405")
-                + updated.setStreetName("Pravin Street") + " "+ updated.setPostalCode(4001) + updated.setCity("Durban"));
+        //System.out.println("Updated Address:(" + updated.setUnitNumber("17")+ "): " + updated.setComplexName("Elmar Court") + " " + updated.setStreetNumber("405")
+               // + updated.setStreetName("Pravin Street") + " "+ updated.setPostalCode(4001) + updated.setCity("Durban"));
                 //+ " " + " = Student: (" + address.getUnitNumber() + "): " + address.getComplexName() + " " + address.getStreetNumber()
                 //+ address.getStreetName() + " "  + address.getPostalCode() + " " + address.getCity());
     }
@@ -55,7 +59,7 @@ class AddressRepositoryTest
 
     @Test
     void d_getAll(){
-        System.out.println(addressRepository. getAll() + "\n");
+        System.out.println("Show All:" + addressRepository. getAll() + "\n");
     }
 
 
