@@ -20,12 +20,12 @@ import java.util.Optional;
 @Service
 public class NameService implements INameService {
 
- private final INameRepository repository;
+ private  INameRepository repository;
 
- @Autowired private NameService(INameRepository repository)
+/* @Autowired private NameService(INameRepository repository)
  {
      this.repository=repository;
- }
+ }*/
 
  @Override
     public Name save(Name name)

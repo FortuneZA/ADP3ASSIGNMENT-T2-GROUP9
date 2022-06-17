@@ -9,11 +9,11 @@ Date: 11 June 2022
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.NoRepositoryBean;
 import za.ac.cput.domain.identity.Name;
-
-
 import java.util.List;
 
+@NoRepositoryBean
 public interface INameRepository extends JpaRepository<Name,String> {
 
     //SELECT * FROM NAME WHERE lastName = ''
