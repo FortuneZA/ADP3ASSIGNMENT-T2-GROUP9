@@ -11,7 +11,7 @@ import za.ac.cput.domain.location.Address;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import com.sun.istack.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 @Entity
