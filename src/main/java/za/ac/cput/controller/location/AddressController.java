@@ -34,7 +34,7 @@ public class AddressController
     @GetMapping("read/{Id}")
     public ResponseEntity<Address> read (@PathVariable String unitNumber) {
         Address address = this.addressService.read(unitNumber)
-                .orElseThrow( (  new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow( (  new ResponseStatusException(HttpStatus.NOT_FOUND));q 
         return ResponseEntity.ok(address);
     }
 
