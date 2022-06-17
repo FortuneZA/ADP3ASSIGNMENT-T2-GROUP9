@@ -1,12 +1,16 @@
 # ADP3ASSIGNMENT-T2-GROUP9
 
-School management system
+## Scope
+
+School Management System
 
 ## **Problem Statement:**
 
 In the quest for seamless and effective organisational processes in a college, the technology department of the college has been given the task to digitize and automate its academic-facing processes.
 
-## **Domain problem:** Education
+## **Domain problem:**
+
+Education
 
 ## Authors:
 
