@@ -4,7 +4,12 @@ import java.io.Serializable;
 import javax.persistence.Access;
 import javax.persistence.Embeddable;
 import javax.persistence.AccessType;
-
+/*
+Address.java
+@Author Themba Khanyile
+Student Number: 217238173
+Date: 11 June 2022
+ */
 
 @Embeddable
 @Access(AccessType.FIELD)

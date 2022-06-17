@@ -3,10 +3,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.location.Address;
 import za.ac.cput.repository.location.IAddressRepository;
-
 import javax.lang.model.element.Name;
 import java.util.List;
 import java.util.Optional;
+/*
+AddressService.java
+@Author Themba Khanyile
+Student Number: 217238173
+Date: 11 June 2022
+ */
 
 public class AddressService implements IAddressService
 {
@@ -16,6 +21,9 @@ public class AddressService implements IAddressService
     {
         this.repository=repository;
     }
+
+    //public static AddressService getService() {
+   // }
 
     @Override
     public Address save(Address address)
