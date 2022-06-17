@@ -1,10 +1,12 @@
 package za.ac.cput.repository.location;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.location.Address;
-
+/*
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.HashSet;
+@SpringBootTest
 public  class AddressRepository implements IAddressRepository
 {
     private static AddressRepository repository = null;
@@ -87,3 +89,4 @@ public  class AddressRepository implements IAddressRepository
 
 
 }
+*/

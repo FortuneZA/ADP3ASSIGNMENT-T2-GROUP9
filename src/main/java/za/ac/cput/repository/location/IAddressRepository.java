@@ -1,4 +1,6 @@
 package za.ac.cput.repository.location;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.location.Address;
 import za.ac.cput.repository.IRepository;
 
@@ -6,23 +8,19 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public interface IAddressRepository extends IRepository<Address, String>
+@Repository
+public interface IAddressRepository extends JpaRepository<Address, Address.Builder>
 {
 
-    //Address create(Address student);
 
-    //Address read(String unitNumber);
-
-   // Address update(Address address);
-
-   // boolean delete(String unitNumber);
-
-    public Set<Address> getAll();
+    //public Set<Address> getAll();
 
 
-    List<Address> findAll();
+    //List<Address> find(String unitNumber);
 
-    Address save(Address address);
+   // Address save(Address address);
 
-    Optional<Address> findById(String unitNumber);
+   // List<Address> findById(String unitNumber);
+
+   Optional<Address> findById(String unitNumber);
 }

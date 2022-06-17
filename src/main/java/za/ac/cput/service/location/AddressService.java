@@ -33,7 +33,7 @@ public class AddressService implements IAddressService
     @Override
     public void delete(Address address)
     {
-        this.repository.delete(String.valueOf(address));
+        this.repository.delete (address);
     }
     @Override
     public List<Address> findAll()
