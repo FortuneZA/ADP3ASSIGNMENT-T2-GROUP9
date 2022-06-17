@@ -10,12 +10,17 @@ In the quest for seamless and effective organisational processes in a college, t
 
 ## Authors:
 
-Mathew Fortuin -219069514 <br/>
-Devon Daniels-217299822 <br/>
-Mawande Langa-2190740540 <br/>
-Themba Khanyile-217238173 <br/>
-Lefu Kumeke-2181478569 <br/>
-Cameron Noemdo-219115443
+| Student No | Name            | Assigned Task            |
+|------------|-----------------|--------------------------|
+| 2181478569 | Lefu Kumeke     | Employee                 |
+| 217299822  | Devon Daniels   | City /Country            |
+| 219115443  | Cameron Noemdo  | Student                  |
+| 2190740540 | Mawande Langa   | Student/Employee Address |
+| 217238173  | Themba Khanyile | Address                  |
+| 219069514  | Mathew Fortuin  | Name                     |
+
+
+
 
 ## **Question 10:**
 
