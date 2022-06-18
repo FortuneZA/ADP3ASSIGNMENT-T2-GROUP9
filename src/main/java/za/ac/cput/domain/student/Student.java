@@ -3,7 +3,7 @@ package za.ac.cput.domain.student;
 /* Student.java
 Entity class for Student
 Author: Cameron Henry Noemdo (219115443)
-Date: 11 June 2022
+Date: 12 June 2022
 
 */
 
