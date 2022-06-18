@@ -34,6 +34,12 @@ In addition, complex value objects should be separated from entities. This can a
 
 According to the domain model, all entities and value objects should have private access modifiers rather than public access modifiers. Class objects are meant to hide complexity and therefore promote encapsulation. These private objects can be accessed by using public getters and setters.
 
+Having the value object in Name could allow duplication to be present in the database. Including the first, middle, and last name attributes within the Employee and Student entity's will not allow for duplication as there would be one (full) name assigned to one student or one employee. It also allows for easier updating of a name for an employee or student.
+
+An identifier could be assigned to the name value object making it an entity. Then the Name objects in Student and Employee could be replaced with a foreign key which would be a reference for a corresponding name key in the Name entity.
+
+The Address value object could be renamed to MailingAddress or PostalAddress to be more descriptive. 
+
 ## Domain Model
 
 ![image](https://user-images.githubusercontent.com/61013523/172817275-ff191665-ca8c-4c3f-90c2-12afba057fdc.png)
