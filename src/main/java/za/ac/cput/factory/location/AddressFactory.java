@@ -1,5 +1,7 @@
 package za.ac.cput.factory.location;
 import za.ac.cput.domain.location.Address;
+import za.ac.cput.domain.region.City;
+
 //import za.ac.cput.Util.GenericHelper;
 /*
 AddressFactory.java
@@ -9,7 +11,7 @@ Date: 11 June 2022
  */
 public class AddressFactory
 {
-    public static Address createAddress(String unitNumber,String complexName, String streetNumber, String streetName, int postalCode, String City)
+    public static Address createAddress(String unitNumber, String complexName, String streetNumber, String streetName, int postalCode, City city)
     {
         if(unitNumber.equals("") || unitNumber == null)
             return null;
@@ -23,7 +25,7 @@ public class AddressFactory
          .setStreetNumber (streetNumber)
          .setStreetName (streetName)
          .setPostalCode (postalCode)
-                .setCity (City)
+                .setCity (city)
          .build();
     }
 
