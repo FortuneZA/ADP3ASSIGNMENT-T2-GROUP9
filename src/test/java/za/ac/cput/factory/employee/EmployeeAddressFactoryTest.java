@@ -11,14 +11,17 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.domain.employee.EmployeeAddress;
 import za.ac.cput.domain.location.Address;
+import za.ac.cput.domain.region.City;
 import za.ac.cput.factory.location.AddressFactory;
+import za.ac.cput.factory.region.CityFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class EmployeeAddressFactoryTest {
     private EmployeeAddress employeeAddress;
+    private final City city = CityFactory.newCity("3","Durban","South Africa");
 
-    private final Address address = AddressFactory.createAddress("05","Spring view","63","Molokwane st",7800,"Cape Town");
+    private final Address address = AddressFactory.createAddress("05","Spring view","63","Molokwane st",7800,city);
 
     @Order(1)
     @Test

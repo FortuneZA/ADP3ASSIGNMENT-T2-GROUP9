@@ -25,6 +25,7 @@ class EmployeeServiceTest {
     private final Name name = NameFactory.buildName("Lefu", "Aubrey", "Kumeke");
     private final Employee employee = EmployeeFactory.createEmployee("10223964", "lefukumeke@gmail.com", name);
 
+
     @Autowired
     private IEmployeeService employeeService;
 
@@ -69,5 +70,25 @@ class EmployeeServiceTest {
     }
 
 
+    @Order(5)
+    @Test
+    void findByEmail(){
+        Employee saved = this.employeeService.save(this.employee);
+        employeeService.save(saved);
+        this.employeeService.findByEmail("lefukumeke@gmail.com");
+        List<Employee> aName = this.employeeService.findByEmail(saved.getName().getFirstName());
+        System.out.println(aName );
+       // assertSame(1,aName.size());
+
+    }
+
+/*
+    @Order(6)
+    @Test
+    void findByCityId(){
+
+    City Saved =   this.employeeService.save(this.employee);
+
+    }*/
 }
 

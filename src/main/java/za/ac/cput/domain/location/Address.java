@@ -1,9 +1,9 @@
 package za.ac.cput.domain.location;
 import com.sun.istack.NotNull;
 import java.io.Serializable;
-import javax.persistence.Access;
-import javax.persistence.Embeddable;
-import javax.persistence.AccessType;
+import javax.persistence.*;
+
+import za.ac.cput.domain.region.City;
 /*
 Address.java
 @Author Themba Khanyile
@@ -16,14 +16,21 @@ Date: 11 June 2022
 public class Address implements Serializable {
 
 
-    @NotNull
+    
     private String unitNumber;
     private String complexName;
-    private String streetNumber;
     @NotNull
+    private String streetNumber;
     private String streetName;
     private int postalCode;
-    private String City;
+    @Embedded
+    @ManyToOne
+    private City city;
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
     @SuppressWarnings("unused")
     //Parameterless constructor
     protected Address(){}
@@ -34,7 +41,7 @@ public class Address implements Serializable {
         this.streetNumber = builder.streetNumber;
         this.streetName = builder.streetName;
         this.postalCode = builder.postalCode;
-        this.City = builder.City;
+        this.city = builder.city;
 
     }
 
@@ -59,8 +66,8 @@ public class Address implements Serializable {
     }
 
 
-    public String getCity() {
-        return City;
+    public City getCity() {
+        return city;
     }
 
 
@@ -70,7 +77,7 @@ public class Address implements Serializable {
         private String streetNumber;
         private String streetName;
         private int postalCode;
-        private String City;
+        private City city;
 
 
 
@@ -107,8 +114,8 @@ public class Address implements Serializable {
         }
 
 
-        public Builder setCity(String city) {
-            City = city;
+        public Builder setCity(City city) {
+            this.city = city;
             return this;
         }
 
@@ -126,7 +133,7 @@ public class Address implements Serializable {
                 ", streetNumber='" + streetNumber + '\'' +
                 ", streetName='" + streetName + '\'' +
                 ", postalCode=" + postalCode +
-                ", City='" + City + '\'' +
+                ", city='" + city + '\'' +
                 '}';
     }
 
