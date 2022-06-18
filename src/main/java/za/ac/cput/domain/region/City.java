@@ -5,94 +5,89 @@ Date: 16 June 2022
 */
 package za.ac.cput.domain.region;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import com.sun.istack.NotNull;
+import za.ac.cput.domain.region.City;
+
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
-
 @Entity
 public class City implements Serializable {
-    @NotNull
     @Id
-    private String id;
     @NotNull
-    private String name;
+    private String cityId;
+    @NotNull
+    private String cityName;
+    @Embedded
+    @NotNull private String country;
 
-    @ManyToOne(targetEntity = Country.class, cascade = CascadeType.ALL)
-    private Country country;
+    protected City(){}
 
-    public Country getCountry() {
-        return country;
-    }
-
-    public City() {
-    }
-
-    private City(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
+    public City(za.ac.cput.domain.region.City.Builder builder) {
+        this.cityId = builder.cityId;
+        this.cityName = builder.cityName;
         this.country = builder.country;
     }
 
-    public String getId() {
-        return id;
+    public String getCityId() {
+        return cityId;
     }
 
-    public String getName() {
-        return name;
+    public String getCityName() {
+        return cityName;
     }
 
-    @Override
-    public boolean equals(Object o)
-    {
-        if(this==o) return true;
-        if(o==null || getClass()!=o.getClass()) return false;
-        City city=(City) o;
-        return id.equals(city.id) && name.equals(city.name) && country.equals(country);
-    }
-
-    @Override
-    public int hashCode(){return Objects.hash(id, name, country);}
-
-    @Override
-    public String toString()
-    {
-        return "City{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' + '}';
+    public String getCountry() {
+        return country;
     }
 
     public static class Builder {
-        private String id;
-        private String name;
-        private Country country;
+        private String cityId;
+        private String cityName;
+        private String country;
 
-        public Builder setId(String id) {
-            this.id = id;
+        public za.ac.cput.domain.region.City.Builder setCityId(String cityId) {
+            this.cityId = cityId;
             return this;
         }
 
-        public Builder setName(String name) {
-            this.name = name;
+        public za.ac.cput.domain.region.City.Builder setCityName(String cityName) {
+            this.cityName = cityName;
             return this;
         }
-        public Builder setCountry(Country country){
+
+        public za.ac.cput.domain.region.City.Builder setCountry(String country) {
             this.country = country;
             return this;
         }
 
-        public Builder copy(City city) {
-            this.id = city.id;
-            this.name = city.name;
-            this.country = city.country;
-            return this;
-        }
-
-        public City build(){
-            return new City(this);
+        public za.ac.cput.domain.region.City build() {
+            return new za.ac.cput.domain.region.City(this);
         }
     }
 
-}
+    @Override
+    public String toString() {
+        return "City{" +
+                "City ID='" + cityId + '\'' +
+                ", City='" + cityName + '\'' +
+                ", Country='"+country +
+                '}';
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        za.ac.cput.domain.region.City city = (za.ac.cput.domain.region.City) o;
+        return cityId.equals(city.cityId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cityId);
+    }
+}

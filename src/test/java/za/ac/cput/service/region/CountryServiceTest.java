@@ -1,64 +1,77 @@
 package za.ac.cput.service.region;
 
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import za.ac.cput.domain.region.Country;
 
 import za.ac.cput.factory.region.CountryFactory;
-import za.ac.cput.service.region.CountryService;
+
 
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@SpringBootTest
 class CountryServiceTest {
-
-    private final Country country = CountryFactory.build("ID1", "Japan");
+    private Country country,saved;
+    private final Country name= CountryFactory.newCountry("7563","Austria");
 
     @Autowired
-    private CountryService countryService;
+    private CountryService service;
+
+    @BeforeEach
+    void setUp() {
+        this.country= CountryFactory.newCountry("1413","Peru");
+        this.saved=service.save(this.country);
+    }
+
+    @AfterEach
+    void tearDown() {
+        this.service.delete(country);
+    }
 
     @Order(1)
     @Test
-    void save() {
-        Country create = countryService.save(this.country);
-        assertEquals(this.country, create);
-        System.out.println(create);
+    void create() {
+        System.out.println(saved);
+        assertAll(
+                ()->assertEquals(this.country,saved),
+                ()->assertNotNull(saved)
+        );
     }
 
     @Order(2)
     @Test
     void read() {
-        Optional<Country> view = this.countryService.read(this.country.getCountryId());
+        Optional<Country> read=this.service.read(saved.getCountryId());
         assertAll(
-                ()-> assertTrue(view.isPresent()),
-                ()-> assertEquals(this.country,view.get())
-        );
+                ()->assertTrue(read.isPresent()),
+                ()->assertEquals(saved,read.get()));
+        System.out.println(read);
     }
-
-/*    @Test
-    void delete() {
-    }*/
 
     @Order(3)
     @Test
-    void readAll() {
-        List<Country> countryList = this.countryService.readAll();
-        assertEquals(1,countryList.size());
+    void delete() {
+        service.delete(saved);
+        List<Country> countryList=service.findAll();
+        assertEquals(0,countryList.size());
+        System.out.println(countryList);
     }
 
     @Order(4)
     @Test
-    void deleteById() {
-        countryService.deleteById("ID1");
-        List<Country> countryList = this.countryService.readAll();
+    void findAll() {
+        Country country1=CountryFactory.newCountry("2412","Chad");
+        service.save(country1);
+        List<Country> countryList=service.findAll();
+        assertEquals(2,countryList.size());
         System.out.println(countryList);
     }
+
+
 }
