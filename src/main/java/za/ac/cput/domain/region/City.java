@@ -24,7 +24,7 @@ public class City implements Serializable {
     @Embedded
     @NotNull private String country;
 
-    protected City(){}
+    public City(){}
 
     public City(za.ac.cput.domain.region.City.Builder builder) {
         this.cityId = builder.cityId;
