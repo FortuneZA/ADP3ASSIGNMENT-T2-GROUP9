@@ -8,7 +8,7 @@ Mathew Fortuin (219069514)
 
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.identity.Name;
 import za.ac.cput.repository.identity.INameRepository;
@@ -22,7 +22,7 @@ public class NameService implements INameService {
 
  private  INameRepository repository;
 
-/* @Autowired private NameService(INameRepository repository)
+ /*@Autowired private NameService(INameRepository repository)
  {
      this.repository=repository;
  }*/
@@ -44,6 +44,7 @@ public class NameService implements INameService {
  {
      this.repository.delete(name);
  }
+
  @Override
  public List<Name> findAll()
  {
