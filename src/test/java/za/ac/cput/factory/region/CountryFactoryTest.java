@@ -5,7 +5,6 @@ Date: 16 June 2022
 */
 package za.ac.cput.factory.region;
 
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.region.Country;
 
@@ -16,7 +15,7 @@ class CountryFactoryTest {
     public void buildWithSuccess()
     {
         Country country=CountryFactory
-                .build("16","Namibia");
+                .build("03","South Africa");
         System.out.println(country);
         assertNotNull(country);
     }
@@ -26,7 +25,7 @@ class CountryFactoryTest {
         Exception exception=assertThrows(IllegalArgumentException.class,()-> CountryFactory.build(null, "South Africa"));
         String exceptionMessage=exception.getMessage();
         System.out.println(exceptionMessage);
-        assertSame("Country ID is required!",exceptionMessage);
+        assertSame("Country ID is null",exceptionMessage);
     }
 
 }
