@@ -3,7 +3,7 @@ package za.ac.cput.factory.student;
 /* StudentFactory.java
 Factory class for Student
 Author: Cameron Henry Noemdo (219115443)
-Date: 10 June 2022
+Date: 11 June 2022
 */
 
 import org.springframework.util.StringUtils;
