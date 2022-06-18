@@ -19,11 +19,11 @@ import java.util.Objects;
 public class Student implements Serializable {
     @Id
     @NotNull
-    private String studentId;
+    public String studentId;
     @NotNull
-    private String email;
+    public String email;
     @Embedded
-    @NotNull private Name name;
+    @NotNull public Name name;
 
     protected Student(){}
 
