@@ -4,7 +4,6 @@ package za.ac.cput.factory.student;
 Factory test class for Student
 Author: Cameron Henry Noemdo (219115443)
 Date: 11 June 2022
-
 */
 
 import org.junit.jupiter.api.MethodOrderer;

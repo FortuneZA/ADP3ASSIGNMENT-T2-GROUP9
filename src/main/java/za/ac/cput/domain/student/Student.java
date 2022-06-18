@@ -4,7 +4,6 @@ package za.ac.cput.domain.student;
 Entity class for Student
 Author: Cameron Henry Noemdo (219115443)
 Date: 12 June 2022
-
 */
 
 import com.sun.istack.NotNull;
