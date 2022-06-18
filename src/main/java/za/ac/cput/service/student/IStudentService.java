@@ -14,5 +14,5 @@ import java.util.List;
 public interface IStudentService extends IService<Student,String> {
     List<Student> findAll();
 
-    //List<Student> findStudentsByCountryId(String countryId);
+    List<Student> findStudentsByCountryId(String countryId);
 }
