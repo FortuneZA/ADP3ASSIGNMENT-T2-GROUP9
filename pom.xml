@@ -86,6 +86,7 @@
             <artifactId>jul-to-slf4j</artifactId>
             <version>1.7.32</version>
         </dependency>
+        <dependency>
 
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
