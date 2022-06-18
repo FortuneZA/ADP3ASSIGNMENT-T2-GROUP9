@@ -3,21 +3,23 @@ package za.ac.cput.factory.location;
 //import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-
+import org.springframework.boot.test.context.SpringBootTest;
+import za.ac.cput.domain.region.City;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.location.Address;
-
 import java.time.Duration;
+@SpringBootTest
+
 class AddressFactoryTest
 {
     private String address1;
     private String address2;
 
     public void createAddress() {
-        Address address1 = AddressFactory.createAddress("12", "Pearls", "159", "Ghandi Road",4310,"Durban");
-        Address address2 = AddressFactory.createAddress("105","Sunningdale","256","Hannover Street",8001,"CapeTown");
+        Address address1 = AddressFactory.createAddress("12", "Pearls", "159", "Ghandi Road",4310,new City());
+        Address address2 = AddressFactory.createAddress("105","Sunningdale","256","Hannover Street",800,new City());
 
         System.out.println(address1);
         System.out.println(address2);
@@ -26,8 +28,8 @@ class AddressFactoryTest
 
     @BeforeEach
     void setUp() {
-        Address address1 = AddressFactory.createAddress("12", "Pearls", "159", "Ghandi Road",4310,"Durban");
-        Address address2 = AddressFactory.createAddress("105","Sunningdale","256","Hannover Street",8001,"CapeTown");
+        Address address1 = AddressFactory.createAddress("12", "Pearls", "159", "Ghandi Road",4310,new City());
+        Address address2 = AddressFactory.createAddress("105","Sunningdale","256","Hannover Street",8001,new City());
 
     }
 
