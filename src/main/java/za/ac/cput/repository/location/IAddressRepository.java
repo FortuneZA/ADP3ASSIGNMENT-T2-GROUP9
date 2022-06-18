@@ -16,7 +16,7 @@ Date: 11 June 2022
  */
 @NoRepositoryBean
 @Repository
-public interface IAddressRepository extends JpaRepository<Address, Address.Builder>
+public interface IAddressRepository extends JpaRepository<Address,String>
 {
 
     //List<Address> findAll();
