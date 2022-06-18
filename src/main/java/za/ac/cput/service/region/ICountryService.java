@@ -5,6 +5,7 @@ import za.ac.cput.service.IService;
 import java.util.List;
 
 public interface ICountryService extends IService<Country,String> {
-    List<Country> readAll();
-    void deleteById(String id);
+    List<Country> findAll();
+
+
 }

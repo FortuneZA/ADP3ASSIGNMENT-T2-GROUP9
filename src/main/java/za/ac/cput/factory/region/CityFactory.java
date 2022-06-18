@@ -5,21 +5,23 @@ Date: 16 June 2022
 */
 package za.ac.cput.factory.region;
 
-import za.ac.cput.util.GenericHelper;
+
+import org.springframework.util.StringUtils;
+import za.ac.cput.domain.identity.Name;
 import za.ac.cput.domain.region.City;
-import za.ac.cput.domain.region.Country;
 
 
 public class CityFactory {
-    public static City build(String id, String name, Country country){
+    public static City newCity(String cityId, String cityName, String country) {
+        if(StringUtils.isEmpty(cityId))
+            throw new IllegalArgumentException("Id is not present");
+        if(StringUtils.isEmpty(cityName))
+            throw new IllegalArgumentException("Name is not present");
 
-        if(GenericHelper.isNullorEmpty(id)|| GenericHelper.isNullorEmpty(name))
-            throw new IllegalArgumentException("id or name is null or empty");
-
-        return new City.Builder().setId(id)
-                .setName(name)
-                .setCountry(country)
-                .build();
-
+        return new City.Builder().
+                setCityId(cityId).
+                setCityName(cityName).
+                setCountry(country).
+                build();
     }
 }
