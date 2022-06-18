@@ -4,7 +4,6 @@ package za.ac.cput.repository.student;
 Repository interface for Student
 Author: Cameron Henry Noemdo (219115443)
 Date: 11 June 2022
-
 */
 
 import org.springframework.data.jpa.repository.JpaRepository;
