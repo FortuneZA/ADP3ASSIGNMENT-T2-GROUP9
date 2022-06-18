@@ -5,10 +5,9 @@ Date: 16 June 2022
 */
 package za.ac.cput.factory.region;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.region.City;
+import za.ac.cput.domain.region.Country;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,19 +16,17 @@ class CityFactoryTest {
     public void buildWithSuccess()
     {
         City city=CityFactory
-                .build("7975","Paarl");
+                .build("Test-Id","Cape Town", new Country());
         System.out.println(city);
         assertNotNull(city);
     }
     @Test
     void buildWithError()
     {
-        Exception exception=assertThrows(IllegalArgumentException.class,()-> CityFactory.build(null, "Cape Town"));
+        Exception exception=assertThrows(IllegalArgumentException.class,()-> CityFactory.build(null, "Cape Town", new Country()));
         String exceptionMessage=exception.getMessage();
         System.out.println(exceptionMessage);
         assertSame("City ID is required!",exceptionMessage);
     }
-
-
 
 }

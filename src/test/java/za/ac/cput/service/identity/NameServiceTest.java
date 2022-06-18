@@ -5,15 +5,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import za.ac.cput.domain.identity.Name;
 import za.ac.cput.factory.identity.NameFactory;
+import za.ac.cput.school_management_main;
 
 
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-@SpringBootTest
+
+@SpringBootTest(classes= school_management_main.class)
 class NameServiceTest {
 
     private Name name,saved;
@@ -40,6 +43,7 @@ class NameServiceTest {
                 ()->assertEquals(this.name,saved),
                 ()->assertNotNull(saved)
         );
+
     }
 
     @Test

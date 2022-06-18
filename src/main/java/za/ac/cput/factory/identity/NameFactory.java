@@ -3,7 +3,7 @@ package za.ac.cput.factory.identity;
 /* NameFactory.java
 Factory class for Name
 Author: Mathew Fortuin (219069514)
-Date: 10 June 2022
+Date: 12 June 2022
 */
 
 import org.springframework.util.StringUtils;
