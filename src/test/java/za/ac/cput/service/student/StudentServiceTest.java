@@ -1,5 +1,13 @@
 package za.ac.cput.service.student;
+
 /*
+
+/* StudentServiceTest.java
+Service test class for Student
+Author: Cameron Henry Noemdo (219115443)
+Date: 12 June 2022
+*/
+
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

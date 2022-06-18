@@ -5,97 +5,89 @@ Date: 16 June 2022
 */
 package za.ac.cput.domain.region;
 
-import java.util.Objects;
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+import com.sun.istack.NotNull;
+import za.ac.cput.domain.region.City;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
-@Embeddable
-@IdClass(City.CityId.class)
-
 public class City implements Serializable {
-    @NotNull @Id public String id;
+    @Id
     @NotNull
-    public String name;
-
-
+    private String cityId;
+    @NotNull
+    private String cityName;
     @Embedded
-    public Country country;
+    @NotNull private String country;
 
-    public Country getCountry() {
+    protected City(){}
+
+    public City(za.ac.cput.domain.region.City.Builder builder) {
+        this.cityId = builder.cityId;
+        this.cityName = builder.cityName;
+        this.country = builder.country;
+    }
+
+    public String getCityId() {
+        return cityId;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public String getCountry() {
         return country;
-    }
-    protected City() {
-    }
-
-
-    public City(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public static class Builder {
-        public String id;
-        public String name;
+        private String cityId;
+        private String cityName;
+        private String country;
 
-        public City.Builder id(String id) {
-            this.id = id;
+        public za.ac.cput.domain.region.City.Builder setCityId(String cityId) {
+            this.cityId = cityId;
             return this;
         }
 
-        public City.Builder name(String name) {
-            this.name = name;
+        public za.ac.cput.domain.region.City.Builder setCityName(String cityName) {
+            this.cityName = cityName;
             return this;
         }
 
-        public City.Builder copy(City city) {
-            this.id = city.id;
-            this.name = city.name;
+        public za.ac.cput.domain.region.City.Builder setCountry(String country) {
+            this.country = country;
             return this;
         }
 
-        public City build(){
-            return new City(this);
+        public za.ac.cput.domain.region.City build() {
+            return new za.ac.cput.domain.region.City(this);
         }
     }
 
-    public static class CityId implements Serializable
-    {
-        public String id;
-        public CityId(String id){this.id=id;}
-        protected CityId(){}
-        public String getId(){return id;}
-    }
-
     @Override
-    public boolean equals(Object o)
-    {
-        if(this==o) return true;
-        if(o==null || getClass()!=o.getClass()) return false;
-        City city=(City) o;
-        return id.equals(city.id);
-    }
-
-    @Override
-    public int hashCode(){return Objects.hash(id);}
-
-    @Override
-    public String toString()
-    {
+    public String toString() {
         return "City{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' + '}';
+                "City ID='" + cityId + '\'' +
+                ", City='" + cityName + '\'' +
+                ", Country='"+country +
+                '}';
     }
 
-}
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        za.ac.cput.domain.region.City city = (za.ac.cput.domain.region.City) o;
+        return cityId.equals(city.cityId);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(cityId);
+    }
+}

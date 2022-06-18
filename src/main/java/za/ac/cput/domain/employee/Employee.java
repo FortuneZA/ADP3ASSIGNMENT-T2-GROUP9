@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Objects;
 import com.sun.istack.NotNull;
 import za.ac.cput.domain.identity.Name;
-
+import za.ac.cput.domain.region.City;
 
 
 @Entity
@@ -29,6 +29,8 @@ public class Employee implements Serializable {
 
     public Employee() {
     }
+
+
 
     public Employee(Builder builder) {
         this.staffId = builder.staffId;
@@ -72,6 +74,8 @@ public class Employee implements Serializable {
         public Employee build() {
             return new Employee(this);
         }
+
+
 }
 
     @Override
