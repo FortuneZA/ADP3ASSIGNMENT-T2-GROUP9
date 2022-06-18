@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.employee.EmployeeAddress;
 import za.ac.cput.domain.location.Address;
+import za.ac.cput.domain.region.City;
 import za.ac.cput.factory.employee.EmployeeAddressFactory;
 import za.ac.cput.factory.location.AddressFactory;
+import za.ac.cput.factory.region.CityFactory;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +23,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class EmployeeAddressServiceTest {
     private EmployeeAddress employeeAddress, saved;
-    private final Address address = AddressFactory.createAddress("03","Le ruth","01","parow st",8000,"Cape town");
+    private final City city = CityFactory.newCity("3","Durban","South Africa");
+    private final Address address = AddressFactory.createAddress("03","Le ruth","01","parow st",8000,city);
 
     @Autowired
     private EmployeeAddressService service;
@@ -65,7 +68,7 @@ class EmployeeAddressServiceTest {
     @Order(4)
     @Test
     void readAll(){
-        EmployeeAddress employeeAddress1 = EmployeeAddressFactory.createEmployeeAddress("1234567",AddressFactory.createAddress("03","Le ruth","01","parow st",8000,"Cape town"));
+        EmployeeAddress employeeAddress1 = EmployeeAddressFactory.createEmployeeAddress("1234567",AddressFactory.createAddress("03","Le ruth","01","parow st",8000,city));
         service.save(employeeAddress1);
         List<EmployeeAddress> employeeAddressList =service.findAll();
         assertEquals(1,employeeAddressList.size());

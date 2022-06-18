@@ -11,8 +11,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.location.Address;
+import za.ac.cput.domain.region.City;
 import za.ac.cput.domain.student.StudentAddress;
 import za.ac.cput.factory.location.AddressFactory;
+import za.ac.cput.factory.region.CityFactory;
 import za.ac.cput.factory.student.StudentAddressFactory;
 
 import java.util.List;
@@ -22,7 +24,9 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class StudentAddressServiceTest {
     private StudentAddress studentAddress, saved;
-    private final Address address = AddressFactory.createAddress("03","Le ruth","01","parow st",8000,"Cape town");
+
+    private final City city = CityFactory.newCity("04","PE","South Africa");
+    private final Address address = AddressFactory.createAddress("03","Le ruth","01","parow st",8000,city);
 
     @Autowired
     private StudentAddressService service;
@@ -66,7 +70,7 @@ class StudentAddressServiceTest {
     @Order(4)
     @Test
     void readAll(){
-        StudentAddress studentAddress1 = StudentAddressFactory.createStudentAddress("219074056",AddressFactory.createAddress("03","MG","06","Boulavard",8000,"Cape Town"));
+        StudentAddress studentAddress1 = StudentAddressFactory.createStudentAddress("219074056",AddressFactory.createAddress("03","MG","06","Boulavard",8000,city));
         service.save(studentAddress1);
         List<StudentAddress> studentAddressList = service.findAll();
         assertEquals(1,studentAddressList.size());
