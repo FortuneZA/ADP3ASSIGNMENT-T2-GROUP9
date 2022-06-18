@@ -1,69 +1,77 @@
 package za.ac.cput.service.region;
 
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import za.ac.cput.domain.region.City;
-import za.ac.cput.domain.region.Country;
 
 import za.ac.cput.factory.region.CityFactory;
-import za.ac.cput.factory.region.CountryFactory;
-import za.ac.cput.service.region.CityService;
+
 
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@SpringBootTest
 class CityServiceTest {
-
-    private final Country country = CountryFactory.build("1", "SA");
-    private final City city = CityFactory.build("1", "cape town", country);
+    private City city,saved;
+    private final City name= CityFactory.newCity("5432","Joburg","Nimibia");
 
     @Autowired
-    private CityService cityService;
+    private CityService service;
 
+    @BeforeEach
+    void setUp() {
+        this.city= CityFactory.newCity("1412","Durban", "China");
+        this.saved=service.save(this.city);
+    }
+
+    @AfterEach
+    void tearDown() {
+        this.service.delete(city);
+    }
 
     @Order(1)
     @Test
-    void save() {
-        City create = this.cityService.save(this.city);
-        assertEquals(this.city,create);
-        System.out.println(create);
+    void create() {
+        System.out.println(saved);
+        assertAll(
+                ()->assertEquals(this.city,saved),
+                ()->assertNotNull(saved)
+        );
     }
 
     @Order(2)
     @Test
     void read() {
-        Optional<City> view = this.cityService.read(this.city.getId());
+        Optional<City> read=this.service.read(saved.getCityId());
         assertAll(
-                ()-> assertTrue(view.isPresent()),
-                ()-> assertEquals(this.city,view.get())
-        );
+                ()->assertTrue(read.isPresent()),
+                ()->assertEquals(saved,read.get()));
+        System.out.println(read);
     }
-
-/*    @Test
-    void delete() {
-    }*/
 
     @Order(3)
     @Test
-    void readAll() {
-        List<City> cityList = this.cityService.readAll();
-        assertEquals(1,cityList.size());
+    void delete() {
+        service.delete(saved);
+        List<City> cityList=service.findAll();
+        assertEquals(0,cityList.size());
+        System.out.println(cityList);
     }
 
     @Order(4)
     @Test
-    void deleteById() {
-        this.cityService.deleteById("1");
-        List<City> cityList = this.cityService.readAll();
+    void findAll() {
+        City city1=CityFactory.newCity("2427","PE","Congo");
+        service.save(city1);
+        List<City> cityList=service.findAll();
+        assertEquals(2,cityList.size());
         System.out.println(cityList);
-
     }
+
+
 }
